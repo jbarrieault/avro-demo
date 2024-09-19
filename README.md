@@ -10,12 +10,18 @@ The Java project was built with Maven, using the quickstart archetype:
 The pom.xml file was then updated to add Avro as a dependency, and to add the `avro-maven-plugin` code gen plugin.
 
 Remember to cd into the Java project's root:
-`cd java/avro-demo`
+`cd java-writer`
 
-To generate the avro classes:
+To re-generate the avro classes:
 
 `mvn generate-sources`
 
+Or simply re-compile everything:
+`mvn compile`
+
 Execute the java program:
 
+Noisy:
 `mvn exec:java -Dexec.mainClass="com.github.jbarrieault.App"`
+Quiet:
+`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.App"`
