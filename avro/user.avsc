@@ -1,0 +1,25 @@
+{
+    "namespace": "avro.codegen",
+    "type": "record",
+    "name": "User",
+    "fields": [
+        {
+            "name": "first_name",
+            "type": "string"
+        },
+        {
+            "name": "last_name",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        {
+            "name": "age",
+            "type": [
+                "int",
+                "null"
+            ]
+        }
+    ]
+}
