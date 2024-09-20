@@ -19,9 +19,9 @@ To re-generate the avro classes:
 Or simply re-compile everything:
 `mvn compile`
 
-Execute the java program:
+Execute the java program writes serialized users to a file:
 
-Noisy:
-`mvn exec:java -Dexec.mainClass="com.github.jbarrieault.App"`
-Quiet:
 `mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.App"`
+
+Then the program that de-serializes them:
+`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.ReaderApp"`

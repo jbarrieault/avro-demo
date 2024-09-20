@@ -11,7 +11,7 @@ import java.io.IOException;
  * Hello world!
  *
  */
-public class App {
+public class WriterUsers {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
 
@@ -22,13 +22,13 @@ public class App {
 
         User user2 = new User("Meg", "White", 49);
 
-        // System.out.println(user);
-
         DatumWriter<User> userDatumWriter = new SpecificDatumWriter<User>(User.class);
         DataFileWriter<User> dataFileWriter = new DataFileWriter<User>(userDatumWriter);
         dataFileWriter.create(user.getSchema(), new File("users.avro"));
         dataFileWriter.append(user);
         dataFileWriter.append(user2);
         dataFileWriter.close();
+
+        System.out.println("Users serialized and written to user.avro");
     }
 }
