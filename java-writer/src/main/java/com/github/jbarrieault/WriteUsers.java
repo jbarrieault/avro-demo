@@ -9,7 +9,7 @@ import java.io.IOException;
 
 // Serializes and writes users to users.avro,
 // using the User class, which was generated using user.avsc schema.
-public class WriterUsers {
+public class WriteUsers {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
 
