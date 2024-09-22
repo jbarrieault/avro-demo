@@ -7,10 +7,8 @@ import org.apache.avro.file.DataFileWriter;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Hello world!
- *
- */
+// Serializes and writes users to users.avro,
+// using the User class, which was generated using user.avsc schema.
 public class WriterUsers {
     public static void main(String[] args) throws IOException {
         System.out.println("Hello World!");
