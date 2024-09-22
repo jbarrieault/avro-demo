@@ -25,3 +25,6 @@ Execute the java program writes serialized users to a file:
 
 Then the program that de-serializes them:
 `mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.ReaderApp"`
+
+GenericRead de-serializes the users without using the generated User class:
+`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.GenericRead"`

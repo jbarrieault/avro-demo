@@ -9,6 +9,8 @@ import org.apache.avro.specific.SpecificDatumReader;
 
 import avro.codegen.User;
 
+// read and deserializes users written by the WriteUsers program,
+// using the avro-generated User class.
 public class ReadUsers {
   public static void main(String[] args) throws IOException {
     File file = new File("users.avro");
