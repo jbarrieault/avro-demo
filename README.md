@@ -1,30 +1,22 @@
 # Avro Demo
 Trying out Avro, that's it.
 
-## Development
+## Notes
+The Java directory is a Maven project. The `pom.xml` file uses `avro-maven-plugin`, which automatically generates Avro classes on compile.
 
-The Java project was built with Maven, using the quickstart archetype:
+The project contains a few individually executable classes to demonstrate basic Avro usage:
+- `WriteUsers` serializes users into `users.avro` using the Avro-generated User class.
+- `GenericWrite` serializes users into `users.avro` using the `user.avsc` schema fiile.
+- `ReadUsers` de-serializes users from `users.avro` using the Avro-generated User class.
+- `GenericRead` de-serializes users from `users.avro` using the `user.avsc` schema fiile.
 
-`mvn archetype:generate -DgroupId=com.github.jbarrieault -DartifactId=avro-demo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+They read & write programs are cross-compatible! You can write using the schema file, and read using the generated User class.
+```shell
+cd java
+mvn compile
 
-The pom.xml file was then updated to add Avro as a dependency, and to add the `avro-maven-plugin` code gen plugin.
-
-Remember to cd into the Java project's root:
-`cd java-writer`
-
-To re-generate the avro classes:
-
-`mvn generate-sources`
-
-Or simply re-compile everything:
-`mvn compile`
-
-Execute the java program writes serialized users to a file:
-
-`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.App"`
-
-Then the program that de-serializes them:
-`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.ReaderApp"`
-
-GenericRead de-serializes the users without using the generated User class:
-`mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.GenericRead"`
+# write using the schema file
+mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.GenericWrite"
+# read using the generated User class
+mvn -q exec:java -Dexec.mainClass="com.github.jbarrieault.ReadUsers"
+```
