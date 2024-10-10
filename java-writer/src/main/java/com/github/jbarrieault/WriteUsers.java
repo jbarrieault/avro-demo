@@ -22,7 +22,8 @@ public class WriteUsers {
 
         DatumWriter<User> userDatumWriter = new SpecificDatumWriter<User>(User.class);
         DataFileWriter<User> dataFileWriter = new DataFileWriter<User>(userDatumWriter);
-        dataFileWriter.create(user.getSchema(), new File("users.avro"));
+        File file = new File("users.avro");
+        dataFileWriter.create(user.getSchema(), file);
         dataFileWriter.append(user);
         dataFileWriter.append(user2);
         dataFileWriter.close();
